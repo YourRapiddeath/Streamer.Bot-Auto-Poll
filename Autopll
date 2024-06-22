@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+
+public class CPHInline
+{
+    private Random random = new Random();
+
+    public bool Execute()
+    {
+        List<(string, string, string)> questions = new List<(string, string, string)>
+        {
+            ("This is question number one", "Answer One", "Answer two"),
+            ("This is question number two", "Answer One", "Answer two"),
+            ("This is question number tree", "Answer One", "Answer two"),
+        };
+
+        // Now set all arguments for the Streamer.Bot for a randomly selected question
+        var randomIndex = random.Next(questions.Count);
+        var (question, answerOne, answerTwo) = questions[randomIndex];
+
+        SetArgumentsForBot("Question", question);
+        SetArgumentsForBot("Answer1", answerOne);
+        SetArgumentsForBot("Answer2", answerTwo);
+        SetArgumentsForBot("Answer3", "keines von beiden");
+
+        return true;
+    }
+
+    private void SetArgumentsForBot(string argumentName, string value)
+    {
+        CPH.SetArgument(argumentName, value);
+    }
+
+    public static void Main(string[] args)
+    {
+        CPHInline cph = new CPHInline();
+        cph.Execute();
+    }
+}
