@@ -11,7 +11,7 @@ public class CPHInline
         {
             ("This is question number one", "Answer One", "Answer two"),
             ("This is question number two", "Answer One", "Answer two"),
-            ("This is question number tree", "Answer One", "Answer two"),
+            ("This is question number tree", "Answer One", "Answer two")
         };
 
         // Now set all arguments for the Streamer.Bot for a randomly selected question
